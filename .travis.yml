@@ -13,4 +13,4 @@ after_success:
     - git config --global user.email "${UESR_EMAIL}"
     - git add -A
     - git commit -m 'deploy vuePress docs'
-    - git push --quiet --force "https://${GIHUB_TOKEN}@${GIHUB_REF}" master:${P_BRANCH}
+    - git push --quiet --force "https://${GIHUB_TOKEN}@${GIHUB_REF}" master:${PUSH_BRANCH}
