@@ -3,7 +3,8 @@ const sidebar = [
 		title: 'javaScript相关',
 		collapsable: false,
 		children: [
-			'/javaScript/basic'
+			'/javaScript/basic',
+			'/javaScript/mackdown基础语法'
 		]
 	},
 	{
@@ -48,7 +49,10 @@ const sidebar = [
 		title: '博客文章',
 		collapsable: false,
 		children: [ 
-			'/blog/travis和vuepress搭建github仓库'
+			'/blog/travis和vuepress搭建github仓库',
+			'/blog/promise实现',
+			'/blog/事件环',
+			'/blog/nodeJs流'
 		]
 	}
 ]
