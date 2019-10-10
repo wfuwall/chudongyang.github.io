@@ -39,6 +39,13 @@ const sidebar = [
 		]
 	},
 	{
+		title: '数据库相关',
+		collapsable: false,
+		children: [ 
+			'/db/MySQL'
+		]
+	},
+	{
 		title: 'book相关',
 		collapsable: false,
 		children: [ 
