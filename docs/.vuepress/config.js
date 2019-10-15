@@ -32,10 +32,12 @@ const sidebar = [
 		]
 	},
 	{
-		title: 'git相关',
+		title: '指令相关',
 		collapsable: false,
 		children: [ 
-			'/git/basic'
+			'/command/git',
+			'/command/npm',
+			'/command/brew'
 		]
 	},
 	{
