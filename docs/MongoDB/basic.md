@@ -19,7 +19,7 @@ sudo chown -R $USER /data/db
 ```
 mongod
 ```
-> 当看到 `waiting for connections on port 27017` 时表示mongod运行成功了。
+> 当看到 `waiting for connections on port 27017` 时表示mongod运行成功了。但是下载的 `Robomongo` 测试链接如果还是链接失败，先看下是不是nginx的配置影响了😝
 
 ### 数据库的基本操作
 1. 使用数据库 (database_name是数据库的名字)

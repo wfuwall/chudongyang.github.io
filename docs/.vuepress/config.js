@@ -22,6 +22,13 @@ const sidebar = [
 		]
 	},
 	{
+		title: '小程序',
+		collapsable: false,
+		children: [ 
+			'/wechat/error'
+		]
+	},
+	{
 		title: 'TypeScript相关',
 		collapsable: false,
 		children: [ 
