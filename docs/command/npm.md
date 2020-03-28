@@ -23,3 +23,7 @@ npm config set save-exact true
 - [npm注意事项](https://github.com/nswbmw/N-blog/blob/master/book/2.6%20npm%20%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9.md)
 - https://docs.npmjs.com/cli/shrinkwrap
 - http://tech.meituan.com/npm-shrinkwrap.html
+
+3. npm install -g typescript 
+全局下载 typescript 时遇到下面这种失败的情况，可能是之前把全局的 node_modules 包删除的缘故。可以通过 `npm cache clean --force` 清理缓存后就可以下载成功了
+<img src="/npm-error.png"  height="180" width="auto">
