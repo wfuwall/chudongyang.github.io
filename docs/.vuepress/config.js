@@ -39,6 +39,13 @@ const sidebar = [
 		]
 	},
 	{
+		title: 'flutter相关',
+		collapsable: false,
+		children: [ 
+			'/flutter/install',
+		]
+	},
+	{
 		title: '指令相关',
 		collapsable: false,
 		children: [ 
