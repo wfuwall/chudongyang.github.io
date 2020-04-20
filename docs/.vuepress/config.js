@@ -1,5 +1,12 @@
 const sidebar = [
 	{
+		title: 'small-ui 组件',
+		collapsable: false,
+		children: [
+			'/components/button'
+		]
+	},
+	{
 		title: 'javaScript相关',
 		collapsable: false,
 		children: [
@@ -11,7 +18,8 @@ const sidebar = [
 		title: 'vue相关',
 		collapsable: false,
 		children: [ 
-			'/vue/basic'
+			'/vue/basic',
+			'/vue/comLibrary'
 		]
 	},
 	{

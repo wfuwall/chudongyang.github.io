@@ -65,4 +65,48 @@ Vue.filter('format', function(time, formatter) {
 ```
 
 ### 指令
-- 
+- 自定义指令的钩子函数
+  - bind: 只调用一次，指令第一次绑定到元素时调用
+  - inserted: 被绑定元素插入父节点时调用
+  - update: 所在组件的 VNode 更新时调用
+  - componentUpdated: 指令所在组件的 VNode 及其子 VNode 全部更新后调用
+  - unbind: 只调用一次，指令与元素解绑时调用
+- 钩子函数的参数 el、binding、vonode 和 oldVnode
+  - el: 指令绑定的元素，用来操作 DOM
+  - binding: 包含 name(指令名)、value(指令绑定的值)、oldVnode(指令绑定的前一个值)、expression(字符串形式的指令表达式) 等等组成的对象
+  - vnode: Vue 编译生成的虚拟节点, `vnode.context` 可以获取当前组件的实例
+  - oldVnode: 上一个虚拟节点
+- 定义页面刷新后输入框自动获取焦点指令 v-focus
+```
+Vue.directive('focus', {
+  inserted(el, binding, vnode) {
+    el.focus()
+  }
+})
+```
+- 定义一个类似日期选择器的指令
+```
+Vue.directive('clickOutside', {
+  bind(el, binding, vnode) {
+    document.addEventListener('click', function (e) {
+      if (!el.contains(e.target)) { // 判断点击的元素是否包含在指令应用的元素中
+        const method = binding.expression
+        vnode.context[method]()
+      }
+    })
+  }
+})
+```
+
+### 生命周期
+- beforeCreate: 创建前，没有进行数据观测，只是调用了初始化父子关系及内部的事件
+- created: 创建后，只是初始化了数据，不能获取真实的 DOM 元素
+- beforeMount: 挂载前，在第一次调用 render 函数之前执行, 此时 $el 有值，但是没有挂载到页面上
+- render: 渲染函数，template 模板会被替换成 render 函数，
+- mounted: 挂载后，创建真实的 DOM 元素，替换掉老的节点
+- beforeUpdate: 更新前，可以做一些合并更新的操作
+- updated: 更新后， 此函数里不能在更新数据了，会发生死循环
+- beforeDestroy: 销毁前， 此函数可以做自定义事件的解绑，可取消 DOM 事件的绑定，清除定时器等等
+- destroyed: 销毁后
+- 父组件套子组件，生命周期的执行顺序：父组件的 (beforeCreate、created、beforeMount、render) 一次执行后，渲染子组件的（beforeCreate、created、beforeMount、mounted），最后渲染父组件的 mounted 
+> 生命周期是同步执行的，所以 AJAX 异步请求一定是在 mounted 之后才会执行；服务端渲染 vue， 不支持 mounted， 在服务端没有 DOM 的概念
