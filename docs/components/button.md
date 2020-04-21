@@ -13,12 +13,12 @@
 ::: slot highlight
 ```html
 <el-row>
-  <s-button>默认按钮</s-button>
-  <s-button type="primary">主要按钮</s-button>
-  <s-button type="success">成功按钮</s-button>
-  <s-button type="info">信息按钮</s-button>
-  <s-button type="warning">警告按钮</s-button>
-  <s-button type="danger">危险按钮</s-button>
+  <l-button>默认按钮</l-button>
+  <l-button type="primary">主要按钮</l-button>
+  <l-button type="success">成功按钮</l-button>
+  <l-button type="info">信息按钮</l-button>
+  <l-button type="warning">警告按钮</l-button>
+  <l-button type="danger">危险按钮</l-button>
 </el-row>
 ```
 :::
@@ -35,12 +35,12 @@
 ::: slot highlight
 ```html
 <el-row>
-  <s-button disabled>默认按钮</s-button>
-  <s-button type="primary" disabled>主要按钮</s-button>
-  <s-button type="success" disabled>成功按钮</s-button>
-  <s-button type="info" disabled>信息按钮</s-button>
-  <s-button type="warning" disabled>警告按钮</s-button>
-  <s-button type="danger" disabled>危险按钮</s-button>
+  <l-button disabled>默认按钮</l-button>
+  <l-button type="primary" disabled>主要按钮</l-button>
+  <l-button type="success" disabled>成功按钮</l-button>
+  <l-button type="info" disabled>信息按钮</l-button>
+  <l-button type="warning" disabled>警告按钮</l-button>
+  <l-button type="danger" disabled>危险按钮</l-button>
 </el-row>
 ```
 :::
@@ -59,9 +59,9 @@
 ::: slot highlight
 ```html
 <el-row>
-  <s-button type="success" icon="share">成功按钮</s-button>
-  <s-button type="warning" icon='like'></s-button>
-  <s-button type="primary" loading="loading" icon-position="right">提交按钮</s-button>
+  <l-button type="success" icon="share">成功按钮</l-button>
+  <l-button type="warning" icon='like'></l-button>
+  <l-button type="primary" loading="loading" icon-position="right">提交按钮</l-button>
 </el-row>
 ```
 :::
@@ -80,7 +80,7 @@
 ::: slot highlight
 ```html
 <el-row>
-  <s-button type="success" loading>提交按钮</s-button>
+  <l-button type="success" loading>提交按钮</l-button>
 </el-row>
 ```
 :::
@@ -95,21 +95,21 @@
 <button-test5></button-test5>
 :::
 
-使用`<s-button-group>`标签来嵌套你的按钮。
+使用`<l-button-group>`标签来嵌套你的按钮。
 
 :::slot highlight
 ```html
-<s-button-group>
-  <s-button icon="arrow-left" type="primary">上一页</s-button>
-  <s-button icon="arrow-right" type="primary" icon-position="right">下一页</s-button>
-</s-button-group>
-<s-button-group class="app-button-group">
-  <s-button icon="edit" type="default"></s-button>
-  <s-button icon="delete" type="default"></s-button>
-  <s-button icon="like" type="default"></s-button>
-  <s-button icon="message" type="default"></s-button>
-  <s-button icon="setting" type="default"></s-button>
-</s-button-group>
+<l-button-group>
+  <l-button icon="arrow-left" type="primary">上一页</l-button>
+  <l-button icon="arrow-right" type="primary" icon-position="right">下一页</l-button>
+</l-button-group>
+<l-button-group class="app-button-group">
+  <l-button icon="edit" type="default"></l-button>
+  <l-button icon="delete" type="default"></l-button>
+  <l-button icon="like" type="default"></l-button>
+  <l-button icon="message" type="default"></l-button>
+  <l-button icon="setting" type="default"></l-button>
+</l-button-group>
 ```
 :::
 </demo-block>

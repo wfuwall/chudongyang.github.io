@@ -1,15 +1,15 @@
 <template>
   <div style="display: flex">
-    <s-button-group>
-      <s-button icon="arrow-left" type="primary">上一页</s-button>
-      <s-button icon="arrow-right" type="primary" icon-position="right">下一页</s-button>
-    </s-button-group>
-    <s-button-group class="app-button-group">
-      <s-button icon="edit" type="default"></s-button>
-      <s-button icon="delete" type="default"></s-button>
-      <s-button icon="like" type="default"></s-button>
-      <s-button icon="message" type="default"></s-button>
-      <s-button icon="setting" type="default"></s-button>
-    </s-button-group>
+    <l-button-group>
+      <l-button icon="arrow-left" type="primary">上一页</l-button>
+      <l-button icon="arrow-right" type="primary" icon-position="right">下一页</l-button>
+    </l-button-group>
+    <l-button-group class="app-button-group">
+      <l-button icon="edit" type="default"></l-button>
+      <l-button icon="delete" type="default"></l-button>
+      <l-button icon="like" type="default"></l-button>
+      <l-button icon="message" type="default"></l-button>
+      <l-button icon="setting" type="default"></l-button>
+    </l-button-group>
   </div>
 </template>
