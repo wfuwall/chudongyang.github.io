@@ -1,5 +1,5 @@
 <template>
   <div class="test4">
-    <l-button type="primary" loading>提交按钮</l-button>
+    <s-button type="primary" loading>提交按钮</s-button>
   </div>
 </template>

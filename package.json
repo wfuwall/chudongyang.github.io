@@ -24,8 +24,8 @@
     "core-js": "2",
     "element-ui": "^2.13.1",
     "highlight.js": "^9.18.1",
-    "lightweight-ui": "1.0.5",
     "node-sass": "^4.13.1",
+    "square-ui": "0.0.1",
     "sass": "^1.26.3",
     "sass-loader": "^8.0.2"
   }

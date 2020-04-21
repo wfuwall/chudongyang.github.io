@@ -1,6 +1,6 @@
 const sidebar = [
 	{
-		title: 'small-ui 组件',
+		title: 'square-ui 组件',
 		collapsable: false,
 		children: [
 			'/components/button'

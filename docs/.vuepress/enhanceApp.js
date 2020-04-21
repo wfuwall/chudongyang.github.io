@@ -5,8 +5,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 import hightlight from 'highlight.js';
 import 'highlight.js/styles/googlecode.css'; // 样式文件
 
-import lightweightUI from 'lightweight-ui';
-import 'lightweight-ui/dist/lightweight-ui.css';
+import squareUI from 'square-ui';
+import 'square-ui/dist/square-ui.css';
 
 Vue.directive('hightlight', function(el) {
   let blocks = el.querySelectorAll('pre code');
@@ -17,5 +17,5 @@ Vue.directive('hightlight', function(el) {
 
 export default ({ Vue, options, router, siteData }) => {
   Vue.use(ElementUI)
-  Vue.use(lightweightUI)
+  Vue.use(squareUI)
 }
