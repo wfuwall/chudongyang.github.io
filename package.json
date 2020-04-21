@@ -4,7 +4,6 @@
   "description": "🖖笔记-->文档",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vuepress dev docs",
     "build": "vuepress build docs"
   },
@@ -25,7 +24,7 @@
     "core-js": "2",
     "element-ui": "^2.13.1",
     "highlight.js": "^9.18.1",
-    "lightweight-ui": "1.0.4",
+    "lightweight-ui": "1.0.5",
     "node-sass": "^4.13.1",
     "sass": "^1.26.3",
     "sass-loader": "^8.0.2"
