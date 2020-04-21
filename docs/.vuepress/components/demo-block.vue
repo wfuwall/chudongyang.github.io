@@ -11,7 +11,7 @@
       <div class="description" v-if="$slots.default">
         <slot></slot>
       </div>
-      <div class="highlight">
+      <div class="highlight" v-highlight>
         <slot name="highlight"></slot>
       </div>
     </div>

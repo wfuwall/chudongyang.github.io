@@ -4,7 +4,7 @@
 
 2. 配置环境变量
 在 .bash_profile 文件中配置以下命令后，重新执行刚修改的初始化文件，使之立即生效
-```
+```js
 # 配置 flutter/bin 所在目录的环境变量
 export PATH=/Users/chu/app/flutter/bin:$PATH
 # 配置资源的环境变量
@@ -14,7 +14,7 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 
 3. 检查当前的环境配置
 通过以下命令检查当前的环境配置,显示结果如下图
-```
+```js
 # 展示flutter的命令帮助
 flutter -h 
 # 检查当前的环境配置
@@ -33,7 +33,7 @@ flutter doctor -v
 
 5. 完成 Android toolchain - develop for Android devices 检测
 - 首先我们先执行一下命令,如果没有报错，界面会要求输入Y/N,一路输入Y就行了
-```
+```js
 flutter doctor --android-licenses
 ```
 - 如果出现 `Android sdkmanager tool not found` 错误，根据提示  `/Users/chu/Library/Android/sdk/tools/bin/sdkmanager` 发现 `/Users/chu/Library/Android/sdk` 目录下并没有 tools 文件夹, 这是因为我们需要安装一个过时的 Android SDK Tools(应该是 Android Studio 的问题, 取消 Hide Obselete Packages 选中可以看到这个包)，而我们下载的新版的 Android Studio 默认是不会安装这个废弃的 SDK 的，我们安装完后重新执行上面的命令，一路 Y 就可以了，此时检查可以发现检查通过了

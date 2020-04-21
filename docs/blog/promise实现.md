@@ -9,7 +9,7 @@
 ### 回调地狱 VS Promise
 就拿`fs`（node的核心包）来说吧，假如我们需要同时请求`a.txt`和`b.txt`中的数据，然后对数据进行操作。这种需求在我们的开发中也经常遇到哦！
 - 曾经的回调地狱
-```
+```js
 let fs = require('fs');
 let arr = [];
 fs.readFile('a.txt','utf8',function(err,data){
@@ -22,7 +22,7 @@ fs.readFile('a.txt','utf8',function(err,data){
 })
 ```
 - 现在的Promise
-```
+```js
 let fs = require('fs');
 function read(url,coding){ // 首先我们对fs.readFile()进行promise封装
   return new Promise((resolve,reject)=>{
@@ -45,7 +45,7 @@ Promise.all([read('a.txt','utf8'),read('b.txt','utf8')]).then(data=>{
 
 ### 1、Promise 类封装
 起初，我发现Promise是可以被new的，说明Promise 的出身是一个类啊，这可是一条很有价值的线索啊。（大家都知道，还用你说）
-```
+```js
 class Promise {
   constructor(executor) { // executor是new Promise的参数
     this.status = 'pending'; // 保存状态
@@ -95,7 +95,7 @@ class Promise {
 ### 2、Promise异步的实现
 在我们平时的开发中，往往异步代码比较多，异步执行需要，然`而Promise`的`executor`执行器又是同步执行的，它不等我们怎么办呢，好着急有木有。
 我们在上面代码的基础上新增如下几行代码：
-```
+```js
 class Promise {
   constructor(executor) {
     this.onResolvedCallbacks = []; // 保存成功的回调
@@ -136,7 +136,7 @@ class Promise {
 
 ### 3、Promise之链式调用的实现
 在开始实现之前呢，我们先来看一下如下代码：
-```
+```js
 //  这里的Promise是ES6封装好的，并不是我们自己实现的 
 let promise = new Promise((resolve,reject)=>{ 
   resolve('123');
@@ -153,7 +153,7 @@ promise2.then((data)=>{
 > 上面代码说明`then`函数执行后返回的`promise2`实例并不是`promise`实例，说明返回值不是`this`，因为`promise`不能即调用成功后不能再走失败，所以`then`函数执行后返回的`promise2`是一个新的`promise`实例。（跟jQuery的链式调用不一样哦）
 
 `Promise`的`constructor`的代码不需要改变，只需要对`then`函数进行再次封装：
-```
+```js
 then(onFulfilled, onRejected) {
     // onFulfilled和onRejected可能没传
     onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value=>value;
@@ -213,7 +213,7 @@ then(onFulfilled, onRejected) {
 - `resolvePromise`：封装`resolvePromise`方法，当then函数中的成功或者失败函数返回值x可能还是个promise
 
 定义的resolvePromise方法：
-```
+```js
 let resolvePromise = (promise2,x,resolve, reject)=>{
   let called;
   // promise2和函数的返回值是同一个
@@ -260,7 +260,7 @@ let resolvePromise = (promise2,x,resolve, reject)=>{
 
 ### 3、Promise之类上的方法实现
 当然，我们已经初步了解了`promise`的核心力量，在我们开发的过程中，除了then方法，也会使用它的一些其他常用的方法，就像一位身经百战的特工，你除了会用刀，还要会用枪不是。我们在Promise类上定义它们：
-```
+```js
 static resolve(value){
     return new Promise((resolve,reject)=>{
       resolve(value);

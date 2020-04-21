@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{675:function(t,s,n){"use strict";n.r(s);var e=n(49),a=Object(e.a)({},(function(){var t=this.$createElement,s=this._self._c||t;return s("div",{staticClass:"test4"},[s("s-button",{attrs:{type:"primary",loading:""}},[this._v("提交按钮")])],1)}),[],!1,null,null,null);s.default=a.exports}}]);

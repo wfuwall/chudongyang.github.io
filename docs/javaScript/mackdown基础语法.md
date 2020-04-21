@@ -1,7 +1,7 @@
 ### mackdown基础语法
 Markdown 支持两种标题的语法，类 Setext 和类 atx 形式。
 类 Setext 形式是用底线的形式，利用 = （最高阶标题）和 - （第二阶标题），例如：
-```
+```js
 This is an H1
 =============
 This is an H2
@@ -10,7 +10,7 @@ This is an H2
 > 两个以上的 = 和 - 都可以有效果
 
 类 Atx 形式则是在行首插入 1 到 6 个 # ，对应到标题 1 到 6 阶，例如：
-```
+```js
 # 这是 H1
 ## 这是 H2
 ###### 这是 H6
@@ -21,17 +21,17 @@ This is an H2
 
 ### 区块引用 Blockquotes
 Markdown 标记区块引用是使用类似 email 中用 > 的引用方式。
-```
+```js
 > This is Blockquotes
 ```
 区块引用可以嵌套（例如：引用内的引用），只要根据层次加上不同数量的 >:
-```
+```js
 > This is the first level of quoting.
 > > This is nested blockquote.
 > Back to the first level.
 ```
 引用的区块内也可以使用其他的 Markdown 语法，包括标题、列表、代码区块等:
-```
+```js
 > ## 这是一个标题。
 > 
 > 1. 这是第一行列表项。
@@ -43,31 +43,31 @@ Markdown 标记区块引用是使用类似 email 中用 > 的引用方式。
 ### 列表
 Markdown 支持有序列表和无序列表。
 无序列表使用星号、加号或是减号作为列表标记：
-```
+```js
 * Red
 * Green
 * Blue
 ```
 等同于：
-```
+```js
 + Red
 + Green
 + Blue
 ```
 也等同于：
-```
+```js
 - Red
 - Green
 - Blue
 ```
 有序列表则使用数字接着一个英文句点：
-```
+```js
 1. Bird
 2. McHale
 3. Parish
 ```
 如果要在列表项目内放进引用，那 > 就需要缩进：
-```
+```js
 * A list item with a blockquote:
   > This is a blockquote
   > inside a list item.
@@ -97,7 +97,7 @@ Markdown 支持有序列表和无序列表。
 ```
 ### 强调
 Markdown 使用星号（*）和底线（_）作为标记强调字词的符号，被 * 或 _ 包围的字词会被转成用 `<em>` 标签包围(相当于斜体)，用两个 * 或 __ 包起来的话，则会被转成 `<strong>`(相当于粗体)。
-```
+```js
 *single asterisks*
 _single underscores_
 **double asterisks**
@@ -110,7 +110,7 @@ __double underscores__
 ```
 ### 代码
 如果要标记一小段行内代码，你可以用反引号把它包起来（`），例如：
-```
+```js
 Use the `sum()` function.
 ```
 ### 图片

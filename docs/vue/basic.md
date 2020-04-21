@@ -22,7 +22,7 @@
 - new Proxy(target, handler)) 返回一个 proxy 实例，target 是要代理的对象，handler 是配置对象，共有13种拦截操作
 - `Reflect` 将 Object 的一些明显属于语言内部的方法，放在了 Reflect 上， Reflect对象一共有 13 个静态方法。 大部分与 Object 对象的同名方法的作用都是相同的，而且它与 `Proxy` 对象的方法是一一对应的
 - 使用 `proxy` 简版的实现响应式原理
-```
+```js
 const handler = {
   get(target, key) {
     console.log('收集依赖')
@@ -56,7 +56,7 @@ const proxy =  new Proxy(target, handler)
  - 过滤器是将原数据进行格式化显示，并且不改变原数据
  - 全局过滤器和局部过滤器
  - 定义一个`format`格式化时间过滤器, 用法 {{ time | format('YYYY:MM:DD hh:mm:ss')}}
-```
+```js
 // time 是管道符前面变量数据，formatter 是 format 调用时传入的参数
 // moment 是一个日期处理类库
 Vue.filter('format', function(time, formatter) {
@@ -77,7 +77,7 @@ Vue.filter('format', function(time, formatter) {
   - vnode: Vue 编译生成的虚拟节点, `vnode.context` 可以获取当前组件的实例
   - oldVnode: 上一个虚拟节点
 - 定义页面刷新后输入框自动获取焦点指令 v-focus
-```
+```js
 Vue.directive('focus', {
   inserted(el, binding, vnode) {
     el.focus()
@@ -85,7 +85,7 @@ Vue.directive('focus', {
 })
 ```
 - 定义一个类似日期选择器的指令
-```
+```js
 Vue.directive('clickOutside', {
   bind(el, binding, vnode) {
     document.addEventListener('click', function (e) {

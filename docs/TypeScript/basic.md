@@ -3,15 +3,15 @@ TypeScript是由微软开发的一款开源的编程语言。旨在编译阶段�
 
 ### TypeScript的安装
 - 全局安装
-```
+```js
 npm install -g typescript
 ```
 - 把.ts后缀的文件编译成.js后缀的文件
-```
+```js
 tsc index.ts
 ```
 - 生成tsconfig.json配置文件
-```
+```js
 tsc --init
 ```
 > 在vscode中，可以通过选择 Terminal(终端)->Run Build Task...(运行生成任务...)->tsc:watch - tsconfig.json 来编译自动ts文件，实现边修改边编译。

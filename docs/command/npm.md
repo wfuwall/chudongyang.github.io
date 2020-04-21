@@ -3,14 +3,14 @@
 
 ### npm命令
 1. npm install 的几种方法及区别
-```
+```js
 npm i express --save / npm i express -S （安装依赖到devDependencies）
 npm i express --save-dev / npm i express -D （安装依赖到dependencies）
 npm i express --save-exact （锁定依赖版本号加入到dependencies）
 npm i express --save-exact -D (锁定依赖版本号加入到devDependencies)
 ```
 在安装依赖之前执行下面的命令，这样所有的依赖都会锁定版本号 
-```
+```js
 npm config set save-exact true
 ```
 > `npm config set` 命令将配置写到了 **~/.npmrc** 文件，可以运行 `npm config list` 查看

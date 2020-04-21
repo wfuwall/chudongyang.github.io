@@ -16,7 +16,7 @@ VuePress+Travis+Github自动化构建生成线上文档，整体思路可以分�
 <img src="/2.png"  height="200" width="auto">
 
 - docs目录下的 `README.md` 会被作为项目的启动页面，其内容如下，可以根据自己的需要进行修改：
-```
+```js
 ---
 home: true
 heroImage: /avatar.jpeg
@@ -36,14 +36,14 @@ footer: MIT Licensed | Copyright © 2018-present
 如果感觉对您有帮助，请不要吝啬点个star，作者感谢o(￣︶￣)o  Promise 
 ```
 - 在package.json中加入开发和生产环境的运行脚本
-```
+```js
 "scripts": {
 	"dev": "vuepress dev docs",
 	"build": "vuepress build docs"
 }
 ```
 - 在config.js文件中可以配置vuepress的一些基础配置，详情配置可以查看 [VuePress配置](https://vuepress.vuejs.org/zh/config/ "描述信息") 
-```
+```js
 module.exports = {
 	title: '学习笔记', // 网站的标题，它将会被用作所有页面标题的前缀
 	description: '描述', // 网站的描述
@@ -84,7 +84,7 @@ module.exports = {
 ### Travis CI配置
 `Travis CI` 提供的是持续集成服务, 它只支持 Github项目。当项目中代码有变更，它便会提供一个运行环境，执行测试，完成构建，还能部署到服务器。
 1. 首先在项目根目录下创建 `.travis.yml` 文件。Travis CI的基础教程，可以参考阮一峰的[持续集成服务 Travis CI 教程](http://www.ruanyifeng.com/blog/2017/12/travis_ci_tutorial.html)，其中的UESR_NAME、UESR_EMAIL、GIHUB_TOKEN、GIHUB_REF、BRANCH是需要在travis网站配置的环境变量。
-```
+```js
 language: node_js
 node_js:
     - 10

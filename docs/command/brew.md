@@ -3,20 +3,20 @@ Homebrew是一款Mac OS平台下的软件包管理工具，拥有安装、卸载
 
 ### 查找安装的包
 1. 查找使用brew 安装过的所有包
-```
+```js
 brew list
 ```
 2. 查找使用 brew 安装过的某个包(比如mongodb)所在的目录
-```
+```js
 brew list mongodb
 ```
 mongodb的启动之前，需要做的准备工作
 - 将 mongod 加入环境变量 在 `.bash_profile` 中加入下面代码
-```
+```js
 export PATH=/usr/local/Cellar/mongodb/4.0.3_1/bin:${PATH}} // 4.0.3_1是你下载的版本
 ```
 - 在根目录下创建data/db用以存放数据文件，更改 `mongod.conf` 配置文件下的 `dbpath = /data/db`
-```
+```js
 systemLog:
   destination: file
   path: /usr/local/var/log/mongodb/mongo.log

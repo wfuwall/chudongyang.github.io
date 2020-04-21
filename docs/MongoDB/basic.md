@@ -4,35 +4,35 @@ MongoDB是一个介于关系数据库和非关系数据库之间的产品，是�
 ### MongoDB的安装
 在mac上安装MongoDB之前，你首先需要安装homebrew，其实一款Mac OS平台下的软件包管理工具。拥有安装、卸载、更新、查看、搜索等很多实用的功能。（假设你已经安装了homebrew）
 - 安装MongoDB
-```
+```js
 brew install mongodb
 ```
 - 新建data/db文件夹保存数据 (-p是在当前目录的父级目录新建)
-```
+```js
 sudo mkdir -p /data/db
 ```
 - 给创建的文件夹写入数据权限 ($USER指的是你的用户名)
-```
+```js
 sudo chown -R $USER /data/db
 ```
 - 运行MongoDB
-```
+```js
 mongod
 ```
 > 当看到 `waiting for connections on port 27017` 时表示mongod运行成功了。但是下载的 `Robomongo` 测试链接如果还是链接失败，先看下是不是nginx的配置影响了😝
 
 ### 数据库的基本操作
 1. 使用数据库 (database_name是数据库的名字)
-```
+```js
 use database_name 
 ```
 > 如果数据库存在，则切换到此数据库下，不存在也可以切换过来，但是不会立即创建
 2. 查看所有的数据库
-```
+```js
 show dbs
 ```
 3. 查看当前正在使用的数据库
-```
+```js
 db
 ```
 4. 
