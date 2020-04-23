@@ -3,6 +3,7 @@ const sidebar = [
 		title: 'square-ui 组件',
 		collapsable: false,
 		children: [
+			'/components/layout',
 			'/components/button'
 		]
 	},
