@@ -4,6 +4,7 @@ const sidebar = [
 		collapsable: false,
 		children: [
 			'/components/layout',
+			'/components/container',
 			'/components/button'
 		]
 	},
