@@ -5,7 +5,8 @@ const sidebar = [
 		children: [
 			'/components/layout',
 			'/components/container',
-			'/components/button'
+			'/components/button',
+			'/components/input'
 		]
 	},
 	{
