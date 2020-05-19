@@ -2,7 +2,7 @@
 home: true
 heroImage: /avatar.jpeg
 actionText: 笔记详情 →
-actionLink: /javaScript/basic
+actionLink: /components/layout
 features:
 - title: 学习笔记
   details: 总结js基础知识、vue和react相关、node相关和日常开发踩坑...

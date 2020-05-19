@@ -7237,10 +7237,10 @@ sprintf-js@~1.0.2:
   resolved "https://registry.npmjs.org/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
-square-ui@0.1.0:
-  version "0.1.0"
-  resolved "https://registry.npmjs.org/square-ui/-/square-ui-0.1.0.tgz#a9e8e6a93621f231bc4a1de09534022c02654ea9"
-  integrity sha512-ZWsk+SoOKIFYgCCbnnQcag9bCXg9D+1nVVZPeavfBNea4pyRDqmImaFWEaYyu2Ro1ltpLWVxLNubI3ezm4e9ew==
+square-ui@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.npmjs.org/square-ui/-/square-ui-0.1.7.tgz#3568492232aa2e25639dfb9dc7e4c0dd52e7c762"
+  integrity sha512-emJ7rNH3uSFT4rZAQWcBTO7EpQOlZABZKzDgc2s/3iAGHCXnAHUXp8Phf/4nUjri/bQdqsJxjwXOSlt5gdmyBg==
   dependencies:
     core-js "^3.6.4"
     vue "^2.6.11"
