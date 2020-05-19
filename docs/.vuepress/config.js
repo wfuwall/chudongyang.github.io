@@ -6,7 +6,8 @@ const sidebar = [
 			'/components/layout',
 			'/components/container',
 			'/components/button',
-			'/components/input'
+			'/components/input',
+			'/components/upload'
 		]
 	},
 	{
