@@ -23,7 +23,7 @@ const sidebar = [
 		collapsable: false,
 		children: [ 
 			'/vue/basic',
-			'/vue/comLibrary'
+			'/vue/source1'
 		]
 	},
 	{
