@@ -14,4 +14,4 @@ footer: MIT Licensed | Copyright © 2018-present chudongyang
 ---
 
 ### star
-如果感觉对您有帮助，请不要吝啬点个star，作者感谢o(￣︶￣)o  Promise 
+如果感觉对您有帮助，请不要吝啬点个star，感谢o(￣︶￣)o 

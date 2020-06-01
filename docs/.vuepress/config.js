@@ -15,6 +15,11 @@ const sidebar = [
 		collapsable: false,
 		children: [
 			'/javaScript/basic',
+			'/javaScript/callback',
+			'/javaScript/prototype',
+			'/javaScript/es6-module',
+			'/javaScript/es6-reflect',
+			'/javaScript/es6-symbol',
 			'/javaScript/mackdown基础语法'
 		]
 	},
