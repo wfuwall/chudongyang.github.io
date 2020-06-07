@@ -62,3 +62,90 @@ dog.say()
 ```
 > 注意：(1) 如果子类中没有写 constructor，那么默认会调用 super() 方法，如果写了就必须写 super(),否则会报错。(2) 
  
+#### 装饰器
+decorator（装饰器）是 ES7 试验型语法，其原理就是一个函数。
+1. 如果在 vscode 中语法报错，可以通过以下途径解决：
+- 在项目的根目录创建一个 jsconfig.json 文件，配置如下：
+```js
+{
+  "compilerOptions": {
+    "experimentalDecorators": true
+  }
+}
+```
+- 在 vscode 的设置中加入下面的配置：
+```js
+"javascript.implicitProjectConfig.experimentalDecorators": true
+```
+2. 由于装饰器是试验型语法，所以现在浏览器还不支持，所以需要使用 babel 进行转义
+- 安装 @babel/plugin-proposal-decorators 插件，.babelrc 文件的配置如下， decorators 插件需要放在 class-properties 插件前面，否则会报错
+```js
+{
+  "presets": [],
+  "plugins": [
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    "@babel/plugin-proposal-class-properties"
+  ]
+}
+```
+3. 类的装饰器
+类支持一个或者多个装饰器，如果有多个装饰器，离类最近的先执行。
+```js
+const obj = {
+  name: 'Tom',
+  age: 10
+}
+function type(constructor) {
+  console.log(2)
+  Object.assign(constructor.prototype, obj)
+}
+function fn() {
+  console.log(1)
+}
+@type
+@fn
+class Animal{}
+const animal = new Animal()
+console.log(animal.name) 
+// 输入结果 1 2 Tom
+```
+4. 属性装饰器
+装饰器函数的参数 constructor（类本身）, key（属性的键）, descriptor（属性描述符）。设置属性为仅读属性，用法如下：
+```js
+class Animal{
+  @readonly name = 'xxxx'
+}
+function readonly(constructor, key, descriptor) {
+  descriptor.writable = false
+}
+const animal = new Animal()
+animal.name = 'yyyy'
+console.log(animal) // {name: "xxxx"}
+```
+5. 函数装饰器
+函数装饰器也有 constructor（类本身）, key（属性的键）, descriptor（属性描述符）三个参数，与属性装饰器不同的是，属性装饰器的 descriptor.initializer() 返回的是当前属性的值，方法的 descriptor.value 返回的是当前的方法。
+```js
+class Animal {
+  @before('吃饭之前，先洗手')
+  eat() {
+    console.log('吃饭')
+  }
+}
+function before(text) {
+  return function(constructor, key, descriptor) {
+    const oldSay = descriptor.value
+    descriptor.value = function() {
+      console.log(text) 
+      oldSay()
+    }
+  }
+}
+const animal = new Animal()
+animal.eat() // 吃饭之前，先洗手  吃饭
+```
+> 装饰器如果需要传参，那么装饰器函数就是一个高阶函数，需要返回一个函数。

@@ -17,6 +17,8 @@ const sidebar = [
 			'/javaScript/basic',
 			'/javaScript/callback',
 			'/javaScript/prototype',
+			'/javaScript/数据结构',
+			'/javaScript/es6-class',
 			'/javaScript/es6-module',
 			'/javaScript/es6-reflect',
 			'/javaScript/es6-symbol',
@@ -82,7 +84,8 @@ const sidebar = [
 		title: 'book相关',
 		collapsable: false,
 		children: [ 
-			'/book/HTTP'
+			'/book/HTTP',
+			'/book/数据结构与算法'
 		]
 	},
 	{

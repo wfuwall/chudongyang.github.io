@@ -38,3 +38,44 @@ function dateFilter(time, type) {
   return result
 }
 ```
+
+#### 数组方法
+除了 findIndex 是 ES6 的方法，forEach、map、some、every、filter、reduce 等都是 ES5 的方法。
+- 数组扁平化，数组提供了 flat() 方法会按照一个可指定的深度递归遍历数组，将所有元素与遍历到的子数组中的元素合并为一个新数组返回
+```js
+const arr = [1, [2, [3, [4, [5]]]]]
+const newArr = arr.flat(Infinity)
+console.log(newArr) // [1, 2, 3, 4, 5]
+```
+- 实现自己的数组扁平化方法
+```js
+const arr = [1, [2, [3, [4, [5]]]]]
+function flatten(arr, depth = 1) {
+  if (depth > 0) {
+    return arr.reduce((prev, current) => {
+      return prev.concat(Array.isArray(current) ? flatten(current, depth - 1) : current)
+    }, [])
+  } else {
+    return arr.slice()
+  }
+}
+console.log(flatten(arr, 10))
+```
+- 实现 compose（组合）方法，react 中就使用了大量的 compose 函数。提示：使用数组的 reduce 和 reduceRight 方法进行实现
+```js
+// 求和方法
+function sum(a, b) { return a + b }
+// 求字符串的长度
+function len(str) { return str.length }
+// 增加前缀的方法
+function addPrefix(len) { return `$${len}` }
+// reduceRight 的实现
+let compose = (...args) => (...values) => {
+  const lastFn = args.pop()
+  return args.reduceRight((prev, current) => current(prev), lastFn(...values))
+}
+// reduce 的实现
+let compose = (...args) => args.reduce((prev, current) => (...values) => prev(current(...values)))
+console.log(addPrefix(len(sum('abc', 'xyz')))) // '$6'
+console.log(compose(addPrefix, len, sum)('abc', 'xyz')) // '$6'
+```
