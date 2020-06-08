@@ -59,7 +59,7 @@ function flatten(arr, depth = 1) {
     return arr.slice()
   }
 }
-console.log(flatten(arr, 10))
+console.log(flatten(arr, 10)) // [ 1, 2, 3, 4, 5 ]
 ```
 - 实现 compose（组合）方法，react 中就使用了大量的 compose 函数。提示：使用数组的 reduce 和 reduceRight 方法进行实现
 ```js

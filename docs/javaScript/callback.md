@@ -89,7 +89,7 @@ newAfter()
 ```
 #### Promise的实现
 
-[Promise 的实现源码](https://github.com/chudongyang/2020/blob/master/%E6%9E%B6%E6%9E%84%E5%9F%BA%E7%A1%80/callback/txt/Promise.js)
+[Promise 的实现源码](https://github.com/chudongyang/2020/blob/master/architectural-foundation/callback/txt/Promise.js)
 
 全局下载 `promises-aplus-tests` 插件，可以校验自己实现的 promise 是否符合 Promise/A+ 规范。
 ```

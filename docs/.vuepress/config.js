@@ -41,6 +41,13 @@ const sidebar = [
 		]
 	},
 	{
+		title: 'node相关',
+		collapsable: false,
+		children: [ 
+			'/node/ejs'
+		]
+	},
+	{
 		title: '小程序',
 		collapsable: false,
 		children: [ 
