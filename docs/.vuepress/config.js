@@ -43,7 +43,8 @@ const sidebar = [
 	{
 		title: 'node相关',
 		collapsable: false,
-		children: [ 
+		children: [
+			'/node/basic',
 			'/node/ejs'
 		]
 	},

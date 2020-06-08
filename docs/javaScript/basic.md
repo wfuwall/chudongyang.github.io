@@ -79,3 +79,20 @@ let compose = (...args) => args.reduce((prev, current) => (...values) => prev(cu
 console.log(addPrefix(len(sum('abc', 'xyz')))) // '$6'
 console.log(compose(addPrefix, len, sum)('abc', 'xyz')) // '$6'
 ```
+- 实现自己的 reduce 方法
+```js
+const arr = [1, 2, 3, 4, 5]
+Array.prototype.myReduce = function(callback, initialVal) {
+  const array = this
+  let prev = initialVal === undefined ? array[0] : initialVal
+  let index = initialVal === undefined ? 1: 0
+  for(let i = index; i < array.length; i++) {
+    let current = array[i]
+    prev = callback(prev, current, i, array)
+  }
+  return prev
+}
+const total = arr.myReduce((prev, current, index, arr) => {
+  return prev + current
+}, 0)
+```

@@ -36,7 +36,9 @@ perform(() => { console.log('hello') },[
 ```
 
 #### 函数柯里化
-将一个函数拆分成多个具体的功能。也可以说是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。
+将一个函数拆分成多个具体的功能。
+- 函数柯里化就是对高阶函数的降阶处理，缩小适用范围，创建一个针对性更强的函数。
+- 也可以说是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。
 ```js
 // 检测数据类型
 const utils = {}
@@ -69,6 +71,20 @@ currying(add)(1, 2)(3)(4, 5)
 ```
 
 #### 反柯里化
+反柯里化其实反映的是一种思想，即扩大方法的适用范围, 让方法使用场景更大。
+- 反柯里化的实现
+```js
+Function.prototype.unCurrying = function() {
+  const self = this
+  return function(...rest) {
+    return Function.prototype.call.apply(self, rest)
+  }
+}
+const push = Array.prototype.push.unCurrying()
+const obj = { a: '嘻嘻' }
+push(obj, '呵呵', '哈哈', '嘿嘿')
+console.log(obj) // { '0': '呵呵', '1': '哈哈', '2': '嘿嘿', a: '嘻嘻', length: 3 }
+```
 
 #### after 函数
 等待函数执行次数达到预期时执行，比如lodash库中的
