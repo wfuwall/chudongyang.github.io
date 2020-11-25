@@ -3899,10 +3899,10 @@ hex-color-regex@^1.1.0:
   resolved "https://registry.npmjs.org/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
 
-highlight.js@^9.18.1:
-  version "9.18.1"
-  resolved "https://registry.npmjs.org/highlight.js/-/highlight.js-9.18.1.tgz#ed21aa001fe6252bb10a3d76d47573c6539fe13c"
-  integrity sha512-OrVKYz70LHsnCgmbXctv/bfuvntIKDz177h0Co37DQ5jamGZLVmoCVMtjMtNZY3X9DrCcKfklHPNeA0uPZhSJg==
+highlight.js@^10.1.2:
+  version "10.1.2"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-10.1.2.tgz#c20db951ba1c22c055010648dfffd7b2a968e00c"
+  integrity sha512-Q39v/Mn5mfBlMff9r+zzA+gWxRsCRKwEMvYTiisLr/XUiFI/4puWt0Ojdko3R3JCNWGdOWaA5g/Yxqa23kC5AA==
 
 hmac-drbg@^1.0.0:
   version "1.0.1"
@@ -7237,10 +7237,10 @@ sprintf-js@~1.0.2:
   resolved "https://registry.npmjs.org/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
-square-ui@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.npmjs.org/square-ui/-/square-ui-0.1.7.tgz#3568492232aa2e25639dfb9dc7e4c0dd52e7c762"
-  integrity sha512-emJ7rNH3uSFT4rZAQWcBTO7EpQOlZABZKzDgc2s/3iAGHCXnAHUXp8Phf/4nUjri/bQdqsJxjwXOSlt5gdmyBg==
+square-ui@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/square-ui/-/square-ui-0.1.8.tgz#7b13f564f37d2bf56c8f3c8a2a93cc8193b63cf1"
+  integrity sha512-ySAl+622CTCf5K2PE60hlideA1REuOUaOC6ObreYuNd/nSVLQ1DfDH85qKrHpY/DNm8APMhXhwovBpkqbe8UXQ==
   dependencies:
     core-js "^3.6.4"
     vue "^2.6.11"
