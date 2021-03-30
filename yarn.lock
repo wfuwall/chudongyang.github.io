@@ -7237,10 +7237,10 @@ sprintf-js@~1.0.2:
   resolved "https://registry.npmjs.org/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
-square-ui@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.npmjs.org/square-ui/-/square-ui-0.1.7.tgz#3568492232aa2e25639dfb9dc7e4c0dd52e7c762"
-  integrity sha512-emJ7rNH3uSFT4rZAQWcBTO7EpQOlZABZKzDgc2s/3iAGHCXnAHUXp8Phf/4nUjri/bQdqsJxjwXOSlt5gdmyBg==
+square-ui@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/square-ui/-/square-ui-0.1.8.tgz#7b13f564f37d2bf56c8f3c8a2a93cc8193b63cf1"
+  integrity sha512-ySAl+622CTCf5K2PE60hlideA1REuOUaOC6ObreYuNd/nSVLQ1DfDH85qKrHpY/DNm8APMhXhwovBpkqbe8UXQ==
   dependencies:
     core-js "^3.6.4"
     vue "^2.6.11"
@@ -8407,9 +8407,9 @@ xtend@^4.0.0, xtend@~4.0.1:
   integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
 
 y18n@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.npmjs.org/y18n/-/y18n-3.2.1.tgz#6d15fba884c08679c0d77e88e7759e811e07fa41"
-  integrity sha1-bRX7qITAhnnA136I53WegR4H+kE=
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.2.tgz#85c901bd6470ce71fc4bb723ad209b70f7f28696"
+  integrity sha512-uGZHXkHnhF0XeeAPgnKfPv1bgKAYyVvmNL1xlKsPYZPaIHxGti2hHqvOCQv71XMsLxu1QjergkqogUnms5D3YQ==
 
 "y18n@^3.2.1 || ^4.0.0", y18n@^4.0.0:
   version "4.0.0"
