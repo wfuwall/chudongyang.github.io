@@ -1,4 +1,4 @@
-#### node
+#### 了解node
 JavaScript 包含了 BOM(浏览器对象模型)、DOM(文档对象模型)、ECMAScript，但是 node 仅仅是一个 JavaScript 的运行时，只包含了 JavaScript 的 ECMAScript，和自身实现的一些模块。
 - node 是基于 Chrome V8 引擎的 JavaScript 运行环境
 - 使用了事件驱动，非阻塞的 I/O 模型，轻量又高效
@@ -53,25 +53,28 @@ node 遵循 CommonJs 模块。
   - 定义 tryModuleLoad 加载模块的方法
 ```js
 // 核心代码
+const path = require('path')
+const fs = require('fs')
+const vm = require('vm')
 function Module(absPath) {
   this.id = absPath
   this.exports = {}
 }
 Module._cache = {}
 Module.wrap = [
-  '(function(exports, module, req) {',
+  '(function(exports, module, req, __filename, __dirname) {',
   '})'
 ]
 Module._extension = {
   '.js'(module){
-    const content = fs.readFileSync(module.id)
+    const content = fs.readFileSync(module.id, 'utf8')
     const str = Module.wrap[0] + content + Module.wrap[1]
     const fn = vm.runInThisContext(str)
-    fn.call(module.exports, module.exports, module, req)
+    fn.call(module.exports, module.exports, module, req, module.id, path.dirname(module.id))
   },
   '.json'(module) {
-    const content = fs.readFileSync(module.id)
-    module.exports = JSON.parse(content.toString())
+    const content = fs.readFileSync(module.id, 'utf8')
+    module.exports = JSON.parse(content)
   },
   '.node'() {}
 }
@@ -84,12 +87,10 @@ Module._resolveFilename = function (filename) {
   function findRealPath(absPath) {
     if (index === suffixList.length) {
       throw new Error(`${filename} module no exist`)
-      return
     }
-    try {
-      fs.accessSync(absPath)
+    if (fs.existsSync(absPath)) {
       realPath = absPath
-    } catch (error) {
+    } else {
       const suffix = suffixList[index++]
       findRealPath(oldPath + suffix)
     }
@@ -112,6 +113,7 @@ function req(filename){
   return module.exports
 }
 ```
+> 注意 module.exports 和 exports 的关系，他们指向的同一个内存地址。 module.exports == exports 返回是 true。
 
 #### node 中的 this
 1. 在 node 文件中，我们直接打印 this 得到的是一个 {}(即 module.exports)，如果我们想打印出 this 指向是 global，可以在自执行函数中打印。
@@ -122,7 +124,7 @@ console.log(this) // {}
   console.log(this) // global
 })()
 ```
-2. global 上需要我们掌握的属性 process（进程）、Buffer（以字节序列的形式来表示二进制数据,其是以16进制表示的）、setInterval/clearInterval、setTimeout/clearTimeout、setImmediate/clearImmediate(宏任务)
+2. global 上经常用到的属性 process（进程）、Buffer（以字节序列的形式来表示二进制数据,其是以16进制表示的）、setInterval/clearInterval、setTimeout/clearTimeout、setImmediate/clearImmediate(宏任务)
 3. 认识 process 进程对象
 - process.platform 标识 Node.js 进程运行其上的操作系统平台, 比如：darwin 代表 MAC
 - process.cwd() 返回 Node.js 进程的当前工作目录,返回的是根目录
@@ -139,6 +141,99 @@ console.log(result)
 ```
 - process.memoryUsage() 返回 Node.js 进程的内存使用情况的对象，可以根据内存使用做优化
 - process.nextTick(callback) 一旦当前事件轮询队列的任务全部完成，在next tick队列中的所有callbacks会被依次调用.(微任务)
+- process.env 返回包含用户环境的对象
+```js
+// 手动设置环境变量
+export NODE_ENV=development // mac 系统设置
+set NODE_ENV=development // window 系统设置
+// 使用 node + 文件名 执行这个文件
+console.log(process.env.NODE_ENV) // development
+```
+> 我们经常使用的 cross-env 包就能跨平台地设置及使用环境变量
 4. 认识 Buffer 对象，它以16进制表示的，用于以字节序列的形式来表示二进制数据
 
 #### node 事件环
+- V8 引擎解析 JavaScript 脚本。
+- 解析后的代码，调用 Node API。
+- libuv 库负责 Node API 的执行。它将不同的任务分配给不同的线程，形成一个 Event Loop（事件循环），以异步的方式将任务的执行结果返回给V8引擎。
+- V8 引擎再将结果返回给用户。
+
+<img src="/nodesystem.png"  height="300" width="auto">
+
+当 Node.js 启动后，它会初始化事件轮询；处理已提供的输入脚本，它可能会调用一些异步的 API、定时器，或者调用 process.nextTick()，然后开始处理事件循环。
+下面的图表展示了事件循环操作顺序的简化概览。
+```
+   ┌───────────────────────────┐
+┌─>│           timers          │   执行 setTimeout 和 setInterval 回调函数
+│  └─────────────┬─────────────┘
+│  ┌─────────────┴─────────────┐
+│  │     pending callbacks     │   执行延迟到下一个循环迭代的 I/O 回调
+│  └─────────────┬─────────────┘
+│  ┌─────────────┴─────────────┐
+│  │       idle, prepare       │   仅系统内部使用
+│  └─────────────┬─────────────┘      ┌───────────────┐
+│  ┌─────────────┴─────────────┐      │   incoming:   │
+│  │           poll            │<─────┤  connections, │  检索新的 I/O 事件;执行与 I/O 相关的回调(比如文件的读写操作)
+│  └─────────────┬─────────────┘      │   data, etc.  │
+│  ┌─────────────┴─────────────┐      └───────────────┘
+│  │           check           │   执行 setImmediate 回调函数
+│  └─────────────┬─────────────┘
+│  ┌─────────────┴─────────────┐
+└──┤      close callbacks      │   执行一些关闭的回调函数，比如 socket.on('close', ...)
+   └───────────────────────────┘
+```
+> 上面简图可以看出，node 中 setImmediate 的执行一直在 setTimeout 之后，除非是在 I/O 操作后 setImmediate 会比 setTimeout 先执行。
+```js
+// 测试一 --> setImmediate  setTimeout
+fs.readFile('./a.js', function () {
+    setTimeout(() => {
+        console.log('setTimeout');
+    }, 0);
+    setImmediate(() => {
+        console.log('setImmediate');
+    });
+}); 
+// 测试二 --> nextTick1 then setTimeout2 nextTick2 setImmediate1 setImmediate2 setTimeout1
+setImmediate(() => {
+  console.log('setImmediate1');
+  setTimeout(() => {
+      console.log('setTimeout1')
+  }, 0);
+});
+Promise.resolve().then(res=>{
+  console.log('then');
+})
+process.nextTick(() => {
+    console.log('nextTick1');
+});
+setTimeout(() => {
+  process.nextTick(() => {
+      console.log('nextTick2');
+  });
+  console.log('setTimeout2');
+  setImmediate(() => {
+      console.log('setImmediate2');
+  });
+}, 0);
+// 测试三 --> 以浏览器中的为准 script start, async1 start, async2, promise1, script end, async1 end, promise2, setTimeout
+async function async1() {
+  console.log('async1 start')
+  await async2() // --> 浏览器中可以认为这一步被转化成 async2().then(() => { console.log('async1 end') })
+  console.log('async1 end') // 这一步的执行需要等待 async2 的 promise 函数成功后才能执行
+}
+async function async2() {
+  console.log('async2')
+}
+console.log('script start')
+setTimeout(function () {
+  console.log('setTimeout')
+})
+async1()
+new Promise(function (resolve) {
+  console.log('promise1')
+  resolve()
+}).then(function () {
+  console.log('promise2')
+})
+console.log('script end')
+````

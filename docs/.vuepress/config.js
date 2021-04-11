@@ -33,45 +33,52 @@ const sidebar = [
 			'/vue/source1'
 		]
 	},
-	{
-		title: 'react相关',
-		collapsable: false,
-		children: [ 
-			'/react/basic'
-		]
-	},
-	{
-		title: 'node相关',
-		collapsable: false,
-		children: [
-			'/node/basic',
-			'/node/ejs'
-		]
-	},
-	{
-		title: '小程序',
-		collapsable: false,
-		children: [ 
-			'/wechat/error'
-		]
-	},
-	{
-		title: 'TypeScript相关',
-		collapsable: false,
-		children: [ 
-			'/TypeScript/basic',
-			'/TypeScript/数据类型',
-			'/TypeScript/函数',
-			'/TypeScript/类'
-		]
-	},
-	{
-		title: 'flutter相关',
-		collapsable: false,
-		children: [ 
-			'/flutter/install',
-		]
-	},
+	// {
+	// 	title: 'react相关',
+	// 	collapsable: false,
+	// 	children: [ 
+	// 		'/react/basic'
+	// 	]
+	// },
+	// {
+	// 	title: 'node相关',
+	// 	collapsable: false,
+	// 	children: [
+	// 		'/node/basic',
+	// 		'/node/ejs'
+	// 	]
+	// },
+	// {
+	// 	title: '小程序',
+	// 	collapsable: false,
+	// 	children: [ 
+	// 		'/wechat/error'
+	// 	]
+	// },
+	// {
+	// 	title: 'TypeScript相关',
+	// 	collapsable: false,
+	// 	children: [ 
+	// 		'/TypeScript/basic',
+	// 		'/TypeScript/数据类型',
+	// 		'/TypeScript/函数',
+	// 		'/TypeScript/类'
+	// 	]
+	// },
+	// {
+	// 	title: '算法',
+	// 	collapsable: false,
+	// 	children: [ 
+	// 		'/algorithm/leetcode-algorithm'
+	// 	]
+	// },
+	// {
+	// 	title: 'flutter相关',
+	// 	collapsable: false,
+	// 	children: [ 
+	// 		'/flutter/install',
+	// 	]
+	// },
 	{
 		title: '指令相关',
 		collapsable: false,
@@ -81,13 +88,13 @@ const sidebar = [
 			'/command/brew'
 		]
 	},
-	{
-		title: '数据库相关',
-		collapsable: false,
-		children: [ 
-			'/db/MySQL'
-		]
-	},
+	// {
+	// 	title: '数据库相关',
+	// 	collapsable: false,
+	// 	children: [ 
+	// 		'/db/MySQL'
+	// 	]
+	// },
 	{
 		title: 'book相关',
 		collapsable: false,
