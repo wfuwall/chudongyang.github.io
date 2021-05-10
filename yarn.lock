@@ -4866,9 +4866,9 @@ lodash.uniq@^4.5.0:
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
 lodash@^4.0.0, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.3, lodash@^4.17.5, lodash@~4.17.12:
-  version "4.17.15"
-  resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 loglevel@^1.6.6:
   version "1.6.8"
@@ -7237,10 +7237,10 @@ sprintf-js@~1.0.2:
   resolved "https://registry.npmjs.org/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
-square-ui@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.npmjs.org/square-ui/-/square-ui-0.1.7.tgz#3568492232aa2e25639dfb9dc7e4c0dd52e7c762"
-  integrity sha512-emJ7rNH3uSFT4rZAQWcBTO7EpQOlZABZKzDgc2s/3iAGHCXnAHUXp8Phf/4nUjri/bQdqsJxjwXOSlt5gdmyBg==
+square-ui@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/square-ui/-/square-ui-0.1.8.tgz#7b13f564f37d2bf56c8f3c8a2a93cc8193b63cf1"
+  integrity sha512-ySAl+622CTCf5K2PE60hlideA1REuOUaOC6ObreYuNd/nSVLQ1DfDH85qKrHpY/DNm8APMhXhwovBpkqbe8UXQ==
   dependencies:
     core-js "^3.6.4"
     vue "^2.6.11"
